@@ -1,5 +1,5 @@
 (function(){
     'use strict';
     angular
-        .module('appTask03', []);
+        .module('appTask04', []);
 })();

@@ -1,14 +1,22 @@
 (function(){
     'use strict';
     angular
-        .module('appTask03')
+        .module('appTask04')
         .controller('appController', AppController);
 
     AppController.$inject = ['$scope'];
 
     function AppController($scope) {
-        var vm = this;
+         var someLiteral = 'Hello w!';
 
-        vm.someLiteral = 'Hello!';
+        function DoSomething() {
+
+        }
+
+        angular.extend($scope, {
+            externalVar: someLiteral,
+            doSomethingExt: DoSomething
+        });
+
     }
 })();
