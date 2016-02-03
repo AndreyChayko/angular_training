@@ -12,7 +12,7 @@ function Tab() {
                 label: $scope.label,
                 selected: false
             };
-            $ctrl.addTab($scope.tab);
+            $ctrl.addTab($scope.tab); //MARK01: here
         }
     }
 }
@@ -24,7 +24,7 @@ function TabControl() {
         transclude: true,
         controller: ['$scope', function ($scope) {
             $scope.tabs = [];
-            this.addTab = function addTab(tab) {
+            this.addTab = function addTab(tab) {  //this is will be attached to controller itself to have an access from MARK01:
                 $scope.tabs.push(tab);
             };
             $scope.selectTab = function selectTab(index) {
