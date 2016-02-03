@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div ng-app="appTask01" ng-init="$rootScope.someSharedValue = 2016">
+        <div ng-controller="parentCtrl1">
+            <input type="text" ng-model="$rootScope.someSharedValue">{{$rootScope.someSharedValue}}
+            <div ng-controller="ChildCtrl1"><input type="text" ng-model="$rootScope.someSharedValue">{{$rootScope.someSharedValue}}</div>
+            <div ng-controller="ChildCtrl2"><input type="text" ng-model="$rootScope.someSharedValue">{{$rootScope.someSharedValue}}</div>
+        </div>
+        <div ng-controller="parentCtrl2"><input type="text" ng-model="$rootScope.someSharedValue">{{$rootScope.someSharedValue}}</div>
+
+    </div>
+<script src="../../node_modules/angular/angular.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
