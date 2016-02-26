@@ -1,4 +1,4 @@
-(function(){
+(function () {
     'use strict';
     angular
         .module('appTask06')
@@ -12,9 +12,9 @@
         $scope.task = {
             text: ''
         };
-        
+
         $scope.changeValueByTimer = function () {
-            $timeout(function(){
+            $timeout(function () {
                 $scope.valueOp = 'fooooooooooooooooo';
             }, 1000);
         };
@@ -28,9 +28,23 @@
         $scope.changeValueByTimer();
         $scope.changeValueByTimeout();
 
+        TaskService.getAllTasks()
+            .success(function (response) {
+                $scope.tasks = response;
+            }).error(function (e) {
+            console.log(e);
+        });
 
         $scope.createTask = function () {
             TaskService.createTask($scope.task);
+            $timeout(function () {
+                TaskService.getAllTasks()
+                    .success(function (response) {
+                        $scope.tasks = response;
+                    }).error(function (e) {
+                    console.log(e);
+                });
+            });
         }
     }
 })();

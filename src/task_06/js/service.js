@@ -14,6 +14,10 @@
             return $http.post('https://jsfeajax.herokuapp.com/AndreyChayko/todo', task);
         };
 
+        DataService.getAllTasks = function () {
+            return $http.get('https://jsfeajax.herokuapp.com/AndreyChayko/todo');
+        };
+
         return DataService;
 
     }
