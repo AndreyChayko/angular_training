@@ -9,9 +9,17 @@
 <body ng-app="appTask06">
 <div ng-controller="appController">
     <div class="page-header">
-        <h1>Task 04 <small>directives communication via events</small></h1>
+        <h1>Task 04
+            <small>directives communication via events</small>
+        </h1>
     </div>
     <label>{{valueOp}}</label>
+
+
+    <div class="form-group form-inline">
+        <input type="text" class="form-control" ng-model="task.text">
+        <button class="btn-default" ng-click="createTask()">CREATE TASK</button>
+    </div>
 </div>
 
 
@@ -19,6 +27,7 @@
 <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="../../node_modules/angular/angular.min.js"></script>
 <script src="js/app.js"></script>
+<script src="js/service.js"></script>
 <script src="js/appController.js"></script>
 </body>
 </html>

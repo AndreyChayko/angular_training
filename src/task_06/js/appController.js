@@ -4,10 +4,14 @@
         .module('appTask06')
         .controller('appController', AppController);
 
-    AppController.$inject = ['$scope', '$timeout'];
+    AppController.$inject = ['$scope', '$timeout', 'TaskService'];
 
-    function AppController($scope, $timeout) {
+    function AppController($scope, $timeout, TaskService) {
         $scope.valueOp = 'textSOMEEEE';
+
+        $scope.task = {
+            text: ''
+        };
         
         $scope.changeValueByTimer = function () {
             $timeout(function(){
@@ -23,5 +27,10 @@
 
         $scope.changeValueByTimer();
         $scope.changeValueByTimeout();
+
+
+        $scope.createTask = function () {
+            TaskService.createTask($scope.task);
+        }
     }
 })();
