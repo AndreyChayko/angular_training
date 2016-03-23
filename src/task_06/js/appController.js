@@ -36,15 +36,18 @@
         });
 
         $scope.createTask = function () {
-            TaskService.createTask($scope.task);
-            $timeout(function () {
-                TaskService.getAllTasks()
-                    .success(function (response) {
-                        $scope.tasks = response;
-                    }).error(function (e) {
-                    console.log(e);
-                });
-            });
+            TaskService.createTask($scope.task)
+                .success(function () {
+                    TaskService.getAllTasks()
+                        .success(function (response) {
+                            $scope.tasks = response;
+                        }).error(function (e) {
+                        console.log(e);
+                    });
+                }).error(function (e) {
+                console.log(e);
+            })
+
         }
     }
 })();
